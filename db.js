@@ -6,7 +6,7 @@ const connectionParams={
 
 };
 try{
-     await mongoose.connect(process.env.DB,connectionParams)
+    await mongoose.connect(process.env.DB,connectionParams)
     console.log('connected to db')
 }
 catch(error)
