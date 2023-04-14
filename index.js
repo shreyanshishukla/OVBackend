@@ -14,7 +14,7 @@ app.use(cors())
 app.use('/',route)
 const port=process.env.PORT||5000;
 app.listen(port,()=>{
-    console.log(`listening on port ${port}`)
+    console.log(`liiiiiiiiiiiiiiiiiiiiistening on port ${port}`)
 })
 const posts=[
     {

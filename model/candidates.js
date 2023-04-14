@@ -13,7 +13,7 @@ const candidateSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    contact:{
+    Age:{
         type:Number,
         required:true
     }
