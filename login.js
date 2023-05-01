@@ -4,9 +4,9 @@ const checkPassword=require('./checkpassword')
 const createToken=require('./createToken')
 module.exports=async (req,res)=>{
 
-    const {firstName,lastName,email,password}=req.body;
-    console.log(firstName,lastName,email,password)
-    if(!firstName || !email || !lastName || !password)
+    const {firstName,lastName,email,password,adhaar_number}=req.body;
+    console.log(firstName,lastName,email,password,adhaar_number)
+    if(!firstName || !email || !lastName || !password ||!adhaar_number)
      { console.log('wrong input')
      res.redirect('/login')}
   else   

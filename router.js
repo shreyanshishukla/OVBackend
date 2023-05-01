@@ -3,15 +3,17 @@ const login = require('./login')
 const auth=require('./auth')
 const registeration=require('./register')
 const addingCandidates = require("./addCandidates");
-const fetchingCandidates=require("./fetchCandidate")
+const fc=require("./fetchCandidate")
 const adminlogin=require('./adminlogin')
 const adminregistration=require('./registeradmin') 
+const  OTP=require('./getotp')
 
 router.post('/register',(req,res)=>{
     console.log('sending register req')
     registeration(req,res)
 })
 router.post('/login',(req,res)=>{
+    console.log("loginnnnnn")
     login(req,res);
     })
 router.get('/',(req,res)=>{
@@ -27,7 +29,7 @@ router.post("/admin/addCandidates", (req, res) => {
 })
 router.get("/fetchCandidates", (req, res) => {
     console.log("fetchingggggggggggggggg")
-    fetchingCandidates(req, res);
+    fc.fetchingCandidates(req, res);
 })
 router.post("/admin-login", (req, res) => {
     console.log("addinggggg")
@@ -36,5 +38,20 @@ router.post("/admin-login", (req, res) => {
 router.post("/register-admin", (req, res) => {
     console.log("addinggggg")
     adminregistration(req, res);
+})
+router.get('/result',(req,res)=>{
+    fc.result(req,res);
+})
+router.post('/voting',(req,res)=>{
+    fc.voting(req,res)
+})
+router.get('/results/:index',(req,res)=>{
+    fc.resultdata(req,res,index);
+})
+router.post('/getOTP',(req,res)=>{
+    OTP.getOTP(req,res);
+})
+router.post('/verifyOTP',(req,res)=>{
+    OTP.verifyOTP(req,res);
 })
 module.exports=router

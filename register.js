@@ -2,8 +2,8 @@ const bcrypt=require('bcrypt')
 const User=require('./model/user')
 module.exports=async (req,res)=>{
   console.log('registering')
-  console.log(req.body.firstName,req.body.email,req.body.lastName,req.body.password)
-    if(!req.body.firstName || !req.body.email || !req.body.lastName || !req.body.password)
+  console.log(req.body.firstName,req.body.email,req.body.lastName,req.body.password,req.body.adhaar_number)
+    if(!req.body.firstName || !req.body.email || !req.body.lastName || !req.body.password || !req.body.adhaar_number)
      { 
      res.sendStatus(404)}
   else   
@@ -18,6 +18,7 @@ module.exports=async (req,res)=>{
       firstName:req.body.firstName,
       lastName:req.body.lastName,
       email:req.body.email,
+      adhaar_number:req.body.adhaar_number,
       password:hashedpass
 
    })

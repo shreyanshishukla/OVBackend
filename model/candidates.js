@@ -9,6 +9,10 @@ const candidateSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    adhaar_number:{
+        type:String,
+        required:true
+    },
     party:{
         type:String,
         required:true
