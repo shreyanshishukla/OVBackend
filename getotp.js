@@ -39,7 +39,7 @@ const verifyOTP=async (req,res)=>{
         client_id: client,
         otp: UserOtp
     };
-res.send('err');
+
     axios.post(urlEnterOtp, data2, { headers: headers })
     .then(response => {
     var dataRecieved = JSON.parse(JSON.stringify(response.data))
