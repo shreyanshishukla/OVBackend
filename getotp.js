@@ -11,6 +11,7 @@ const getOTP=async (req,res)=>{
     const data1 = { 
         aadhaarNumber: AdhNum
     };
+    // res.send("SubmitOtp")
    
     axios.post(urlRequestOtp, data1, { headers: headers })
     .then(response => {
@@ -44,7 +45,7 @@ const verifyOTP=async (req,res)=>{
     .then(response => {
     var dataRecieved = JSON.parse(JSON.stringify(response.data))
         console.log("OTP verified",dataRecieved );
-        res.send(dataRecieved);
+        res.send(Verified);
     })
     .catch(error => {
     console.error('Error:', error);
