@@ -8,14 +8,14 @@ module.exports=async (req,res)=>{
     console.log(firstName,lastName,email,password,adhaar_number)
     if(!firstName || !email || !lastName || !password ||!adhaar_number)
      { console.log('wrong input')
-     res.redirect('/login')}
+     res.send("wrong input")}
   else   
    { 
    
      try{
         console.log('trying')
-       const user=await  User.findOne({email})
-       let token=await createToken({email,firstName,lastName})
+       const user=await  User.findOne({adhaar_number})
+       let token=await createToken({email,firstName,lastName,adhaar_number})
         if(!user)
      {  console.log('no record found'); res.redirect('/register')}
         else{

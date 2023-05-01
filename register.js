@@ -10,7 +10,7 @@ module.exports=async (req,res)=>{
    { console.log('fineee') 
  
      try{
-      const search=await User.find({email:req.body.email})
+      const search=await User.find({adhaar_number:req.body.adhaar_number})
       if(search.length==0)
     { const salt=await  bcrypt.genSalt(10)
      const hashedpass=await bcrypt.hash(req.body.password,salt)
@@ -28,7 +28,7 @@ module.exports=async (req,res)=>{
     else{
       console.log(search.length)
       console.log('already exist')
-      res.redirect('/register')
+       res.send("already exits")
     }
      }
      catch(err)
