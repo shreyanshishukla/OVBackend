@@ -9,7 +9,7 @@ const candidateSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    adhaar_number:{
+    gender:{
         type:String,
         required:true
     },

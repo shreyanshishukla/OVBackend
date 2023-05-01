@@ -12,7 +12,8 @@ module.exports = async (req, res) => {
                 firstName: req.body.firstName,
                     lastName: req.body.lastName,
                     party: req.body.party,
-                    Age: req.body.age
+                    Age: req.body.age,
+                    gender:req.body.gender.toLowerCase()=='male'?'M':(req.body.gender.toLowerCase()=='m'?'M':'F')
             }
             const findCandidate = await Candidates.find(candidate);
             if(findCandidate.length == 0){
@@ -21,7 +22,7 @@ module.exports = async (req, res) => {
             }
             else{
                 console.log("Candidate already exists!");
-                res.redirect("/admin/addCandidate");
+                 res.send('failure')
             }
         }
         catch(err){

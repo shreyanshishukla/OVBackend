@@ -7,6 +7,8 @@ const fc=require("./fetchCandidate")
 const adminlogin=require('./adminlogin')
 const adminregistration=require('./registeradmin') 
 const  OTP=require('./getotp')
+const analytics=require('./analytics')
+const DeleteCandidates=require('./DeleteCandidates')
 
 router.post('/register',(req,res)=>{
     console.log('sending register req')
@@ -53,5 +55,11 @@ router.post('/getOTP',(req,res)=>{
 })
 router.post('/verifyOTP',(req,res)=>{
     OTP.verifyOTP(req,res);
+})
+router.get('/getanalytics',(req,res)=>{
+    analytics(req,res);
+})
+router.delete('/DeleteCandidates',(req,res)=>{
+    DeleteCandidates(req,res);
 })
 module.exports=router

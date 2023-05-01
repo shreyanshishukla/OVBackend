@@ -12,24 +12,24 @@ const getOTP=async (req,res)=>{
         aadhaarNumber: AdhNum
     };
   
-   
-    axios.post(urlRequestOtp, data1, { headers: headers })
-    .then(response => {
-    var dataRecieved = JSON.parse(JSON.stringify(response.data))
-        console.log(dataRecieved );
-        var otp_status = dataRecieved.result.data.otp_sent;
-        client = dataRecieved.result.data.client_id;
-        if(otp_status == true){
-            console.log("OTP sent")
-            res.send("SubmitOtp");
-        }
-        else{
-            res.send("error");
-        }
-    })
-    .catch(error => {
-    console.error('Error:', error);
-    });
+   res.send("SubmitOtp")
+    // axios.post(urlRequestOtp, data1, { headers: headers })
+    // .then(response => {
+    // var dataRecieved = JSON.parse(JSON.stringify(response.data))
+    //     console.log(dataRecieved );
+    //     var otp_status = dataRecieved.result.data.otp_sent;
+    //     client = dataRecieved.result.data.client_id;
+    //     if(otp_status == true){
+    //         console.log("OTP sent")
+    //         res.send("SubmitOtp");
+    //     }
+    //     else{
+    //         res.send("error");
+    //     }
+    // })
+    // .catch(error => {
+    // console.error('Error:', error);
+    // });
     
    
 }
@@ -40,16 +40,16 @@ const verifyOTP=async (req,res)=>{
         client_id: client,
         otp: UserOtp
     };
-   
-    axios.post(urlEnterOtp, data2, { headers: headers })
-    .then(response => {
-    var dataRecieved = JSON.parse(JSON.stringify(response.data))
-        console.log("OTP verified",dataRecieved );
-        res.send("Verified");
-    })
-    .catch(error => {
-    console.error('Error:', error);
-    });
+   res.send("Verified")
+    // axios.post(urlEnterOtp, data2, { headers: headers })
+    // .then(response => {
+    // var dataRecieved = JSON.parse(JSON.stringify(response.data))
+    //     console.log("OTP verified",dataRecieved );
+    //     res.send("Verified");
+    // })
+    // .catch(error => {
+    // console.error('Error:', error);
+    // });
  
 }
 module.exports ={getOTP,verifyOTP}
