@@ -9,6 +9,11 @@ const adminregistration=require('./registeradmin')
 const  OTP=require('./getotp')
 const analytics=require('./analytics')
 const DeleteCandidates=require('./DeleteCandidates')
+const FAQ=require('./FAQ');
+const FAQGETADMIN = require('./faqget');
+const faqpost = require('./faqpost');
+
+
 
 router.post('/register',(req,res)=>{
     console.log('sending register req')
@@ -50,6 +55,12 @@ router.post('/voting',(req,res)=>{
 router.get('/results/:index',(req,res)=>{
     fc.resultdata(req,res,index);
 })
+router.get('/faq',(req,res)=>{
+    FAQGETADMIN(req,res);
+})
+router.put('/faqpost',(req,res)=>{
+    faqpost(req,res);
+})
 router.post('/getOTP',(req,res)=>{
     OTP.getOTP(req,res);
 })
@@ -58,6 +69,9 @@ router.post('/verifyOTP',(req,res)=>{
 })
 router.get('/getanalytics',(req,res)=>{
     analytics(req,res);
+})
+router.post('/FAQPOST',(req,res)=>{
+    FAQ(req,res);
 })
 router.delete('/DeleteCandidates',(req,res)=>{
     DeleteCandidates(req,res);
