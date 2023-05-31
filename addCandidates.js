@@ -13,7 +13,8 @@ module.exports = async (req, res) => {
                     lastName: req.body.lastName,
                     party: req.body.party,
                     Age: req.body.age,
-                    gender:req.body.gender.toLowerCase()=='male'?'M':(req.body.gender.toLowerCase()=='m'?'M':'F')
+                    gender:req.body.gender.toLowerCase()=='male'?'M':(req.body.gender.toLowerCase()=='m'?'M':'F'),
+                    Votes:0
             }
             const findCandidate = await Candidates.find(candidate);
             if(findCandidate.length == 0){

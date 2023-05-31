@@ -12,6 +12,10 @@ const DeleteCandidates=require('./DeleteCandidates')
 const FAQ=require('./FAQ');
 const FAQGETADMIN = require('./faqget');
 const faqpost = require('./faqpost');
+const prompt = require('./prompt');
+const enquire = require('./enquire');
+
+
 
 
 
@@ -70,10 +74,17 @@ router.post('/verifyOTP',(req,res)=>{
 router.get('/getanalytics',(req,res)=>{
     analytics(req,res);
 })
+router.get('/enquire',(req,res)=>{
+    enquire(req,res);
+})
 router.post('/FAQPOST',(req,res)=>{
     FAQ(req,res);
 })
 router.delete('/DeleteCandidates',(req,res)=>{
     DeleteCandidates(req,res);
 })
+router.put('/p',(req,res)=>{
+    prompt(req,res);
+})
+
 module.exports=router

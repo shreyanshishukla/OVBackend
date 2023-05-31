@@ -20,6 +20,10 @@ const candidateSchema = new mongoose.Schema({
     Age:{
         type:Number,
         required:true
+    },
+    Votes:{
+        type:Number,
+        required:true
     }
 })
 
